@@ -17,5 +17,5 @@ jobs:
       - name: Install casacore
         shell: bash -el {0}
         run: |
-        apt search casacore
+          apt search casacore
 
