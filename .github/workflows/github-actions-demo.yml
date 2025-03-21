@@ -5,4 +5,6 @@ jobs:
   Explore-Actions:
     runs-on: ubuntu-24.04-arm
     steps:
-      - run: echo "Jpb wass triggered by a ${{ github.event_name}} event"
+      - run: echo "Job wass triggered by a ${{ github.event_name}} event"
+      - run: echo "The name of your branch is ${{ github.ref }} and the repository is ${{ github.repository }}"
+
