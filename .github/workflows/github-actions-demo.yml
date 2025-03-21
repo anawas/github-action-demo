@@ -3,5 +3,6 @@ run-name: ${{ github.actor }} is testing out GitHub Actions
 on: [push]
 jobs:
   Explore-Actions:
-  steps:
-    - run: echo "Jpb wass triggered by a ${{ github.event_name}} event"
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - run: echo "Jpb wass triggered by a ${{ github.event_name}} event"
