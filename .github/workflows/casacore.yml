@@ -11,8 +11,11 @@ jobs:
         os: ["ubuntu-24.04-arm"]
         python-version: ["3.9"]
     steps:
-    - name: Install casacore
-      shell: bash -el {0}
-      run: |
+      - uses: amitie10g/install-package@v1
+        with:
+          apt: casacore-data
+      - name: Install casacore
+        shell: bash -el {0}
+        run: |
         apt search casacore
 
