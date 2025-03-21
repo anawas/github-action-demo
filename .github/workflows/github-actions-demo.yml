@@ -8,14 +8,14 @@ jobs:
       - run: echo "Job was triggered by a ${{ github.event_name}} event"
       - run: echo "The name of your branch is ${{ github.ref }} and the repository is ${{ github.repository }}"
 
-  example-1:
-    name: Ex15 (os=${{ matrix.os }})
+  Conda-Basic-Installation:
+    name: job1 (os=${{ matrix.os }})
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
         os: ["ubuntu-24.04-arm"]
-        python-version: ["3.9", "3.10", "3.10"]
+        python-version: ["3.9", "3.10", "3.11"]
     steps:
     - uses: conda-incubator/setup-miniconda@v3
       with:
