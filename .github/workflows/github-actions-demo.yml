@@ -17,7 +17,7 @@ jobs:
         os: ["ubuntu-24.04-arm"]
         python-version: ["3.9", "3.10", "3.11"]
     steps:
-    - uses: conda-incubator/setup-miniconda@v4
+    - uses: conda-incubator/setup-miniconda@v3
       with:
         auto-update-conda: true
         python-version: ${{ matrix.python-version }}
