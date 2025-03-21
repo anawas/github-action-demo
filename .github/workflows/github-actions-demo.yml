@@ -1,13 +1,7 @@
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions
+name: Conda Actions
+run-name: Testing conda actions
 on: [push]
 jobs:
-  Explore-Actions:
-    runs-on: ubuntu-24.04-arm
-    steps:
-      - run: echo "Job was triggered by a ${{ github.event_name}} event"
-      - run: echo "The name of your branch is ${{ github.ref }} and the repository is ${{ github.repository }}"
-
   Conda-Basic-Installation:
     name: job1 (os=${{ matrix.os }})
     runs-on: ${{ matrix.os }}
@@ -33,18 +27,3 @@ jobs:
     - name: Conda list
       shell: pwsh
       run: conda list
-  Check_for_casacore:
-    name: Check if casacore exists
-    runs-on: ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        os: ["ubuntu-24.04-arm"]
-        python-version: ["3.9"]
-    steps:
-    - name: Install casacore
-      shell: bash -el {0}
-      run: |
-        apt-get update
-        apt-get search casacore
-
