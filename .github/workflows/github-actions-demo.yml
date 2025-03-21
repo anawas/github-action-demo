@@ -36,6 +36,11 @@ jobs:
   Check_for_casacore:
     name: Check if casacore exists
     runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: ["ubuntu-24.04-arm"]
+        python-version: ["3.9"]
     steps:
     - name: Install casacore
       shell: bash -el {0}
