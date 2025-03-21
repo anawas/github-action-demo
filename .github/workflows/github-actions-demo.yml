@@ -5,6 +5,26 @@ jobs:
   Explore-Actions:
     runs-on: ubuntu-24.04-arm
     steps:
-      - run: echo "Job wass triggered by a ${{ github.event_name}} event"
+      - run: echo "Job was triggered by a ${{ github.event_name}} event"
       - run: echo "The name of your branch is ${{ github.ref }} and the repository is ${{ github.repository }}"
+
+  example-15:
+      name: Ex15 (os=${{ matrix.os }})
+      runs-on: ${{ matrix.os }}
+      strategy:
+        fail-fast: false
+        matrix:
+          os: ["ubuntu-24.04-arm"]
+      steps:
+        - uses: actions/checkout@v4
+        - uses: ./
+          id: setup-miniconda
+          continue-on-error: true
+          with:
+            miniforge-version: latest
+        - name: Check ARM
+          shell: bash -el {0}
+          run: |
+            conda install -y python
+            python -c "import platform; assert platform.machine() == 'aarch64', platform.machine()"
 
