@@ -33,7 +33,7 @@ jobs:
     - name: Conda list
       shell: pwsh
       run: conda list
-  Check for casacore:
+  Check_for_casacore:
     name: Check if casacore exists
     runs-on: ${{ matrix.os }}
     steps:
