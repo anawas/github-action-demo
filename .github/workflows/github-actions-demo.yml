@@ -35,6 +35,7 @@ jobs:
       run: conda list
   Check for casacore:
     name: Check if casacore exists
+    runs-on: ${{ matrix.os }}
     steps:
     - name: Install casacore
       shell: bash -el {0}
