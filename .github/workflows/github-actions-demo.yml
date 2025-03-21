@@ -33,3 +33,12 @@ jobs:
     - name: Conda list
       shell: pwsh
       run: conda list
+  Check for casacore:
+    name: Check if casacore exists
+    steps:
+    - name: Install casacore
+      shell: bash -el {0}
+      run: |
+        apt-get update
+        apt-get search casacore
+
