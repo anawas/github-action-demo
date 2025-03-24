@@ -11,4 +11,8 @@ jobs:
       - name: Check for dockerenv file
         run: (ls /.dockerenv && echo Found dockerenv) || (echo No dockerenv)
       - name: Show conda info
-        run: conda info
+        run: |
+          conda info
+          conda config --append channels i4ds
+          conda config --append channels nvidia/label/cuda-11.7.0
+          conda config --append channels conda-forge
