@@ -4,9 +4,14 @@ on:
 
 jobs:
   container-test-job:
-    runs-on: ubuntu-24.04-arm
+    name: Install conda (os=${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
     container:
       image: ghcr.io/i4ds/mambabuild-docker:latest
+    strategy:
+      fail-fast: false
+      matrix:
+        os: ["ubuntu-latest", "ubuntu-24.04-arm"]
     steps:
       - name: Check for dockerenv file
         run: (ls /.dockerenv && echo Found dockerenv) || (echo No dockerenv)
