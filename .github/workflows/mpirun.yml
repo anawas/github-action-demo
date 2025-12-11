@@ -32,4 +32,4 @@ jobs:
           conda activate test_karabo
           python --version
           export IS_GITHUB_RUNNER=true RUN_GPU_TESTS=false RUN_NOTEBOOK_TESTS=true
-          mpirun -n 2 bash "echo Running"
+          mpirun -n 2 /usr/bin/bash "echo Running"
