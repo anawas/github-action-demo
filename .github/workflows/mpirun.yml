@@ -22,7 +22,6 @@ jobs:
           conda create -y -n test_karabo python=3.10
           conda activate test_karabo
           conda env update -f environment.yaml
-          pip install -e ".[dev]"
           python -m ipykernel install --user --name python3.10
       - name: Test Code
         shell: bash -l {0}
