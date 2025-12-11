@@ -7,6 +7,8 @@ jobs:
   Testing_Mpi:
     runs-on: ubuntu-22.04
     steps:
+      - name: Check if mpirun is available
+        run: which mpirun || echo "mpirun not found"
       - name: Checkout
         uses: actions/checkout@v5
       - name: Install Conda
