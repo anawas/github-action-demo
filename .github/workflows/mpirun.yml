@@ -23,6 +23,7 @@ jobs:
           conda activate test_karabo
           conda env update -f environment.yaml
       - name: Check if mpirun is available
+        shell: bash -l {0}
         run: |
           conda activate test_karabo
           which mpirun || echo "mpirun not found"
