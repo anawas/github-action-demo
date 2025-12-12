@@ -7,10 +7,6 @@ jobs:
   Testing_Mpi:
     runs-on: ubuntu-22.04
     steps:
-      - name: Install MPI
-        run: sudo apt-get update && sudo apt-get install -y mpich
-      - name: Check if mpirun is available
-        run: which mpirun || echo "mpirun not found"
       - name: Checkout
         uses: actions/checkout@v5
       - name: Install Conda
@@ -26,6 +22,10 @@ jobs:
           conda create -y -n test_karabo python=3.10
           conda activate test_karabo
           conda env update -f environment.yaml
+      - name: Check if mpirun is available
+        run: |
+          conda activate test_karabo
+          which mpirun || echo "mpirun not found"
       - name: Test Code
         shell: bash -l {0}
         run: |
